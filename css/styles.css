@@ -1,0 +1,316 @@
+/* =========================================================================
+   עבדו קבב — styles.css
+   ========================================================================= */
+
+:root {
+  /* פלטת צבעים — מסעדת בשרים */
+  --bg:          #1a1310;   /* רקע כהה-חם */
+  --bg-alt:      #221813;   /* רקע סקשן מתחלף */
+  --surface:     #2b1e18;   /* כרטיסים */
+  --surface-2:   #38271f;
+  --primary:     #c0392b;   /* אדום/בורדו */
+  --primary-dark:#8e2a20;
+  --accent:      #e0a52e;   /* זהב/ענבר */
+  --accent-soft: #f0c45a;
+  --text:        #f5ece4;   /* טקסט בהיר */
+  --text-muted:  #b9a89c;   /* טקסט משני */
+  --border:      rgba(224,165,46,0.18);
+  --shadow:      0 14px 40px rgba(0,0,0,0.45);
+  --radius:      16px;
+  --maxw:        1160px;
+  --header-h:    72px;
+}
+
+/* ---------- Reset / base ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+
+body {
+  font-family: "Heebo", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+h1, h2, h3, h4 { font-family: "Frank Ruhl Libre", "Heebo", serif; line-height: 1.2; font-weight: 700; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 28px; border-radius: 999px; font-weight: 700; font-size: 1rem;
+  cursor: pointer; border: 2px solid transparent; transition: transform .18s ease, box-shadow .18s ease, background .2s ease, color .2s ease;
+  font-family: "Heebo", sans-serif;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--primary); color: #fff; box-shadow: 0 8px 24px rgba(192,57,43,.4); }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-ghost { background: rgba(255,255,255,.08); color: var(--text); border-color: rgba(255,255,255,.25); backdrop-filter: blur(4px); }
+.btn-ghost:hover { background: rgba(255,255,255,.16); }
+.btn-outline { background: transparent; color: var(--accent); border-color: var(--accent); }
+.btn-outline:hover { background: var(--accent); color: #1a1310; }
+.btn-block { width: 100%; }
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; height: var(--header-h); z-index: 100;
+  display: flex; align-items: center;
+  background: rgba(26,19,16,.55); backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent; transition: background .3s ease, border-color .3s ease;
+}
+.site-header.scrolled { background: rgba(26,19,16,.95); border-bottom-color: var(--border); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; }
+
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo-img { height: 44px; width: auto; display: block; background: #fff; border-radius: 10px; padding: 4px 10px; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+.logo-mark { font-size: 1.5rem; }
+.logo-text { font-family: "Frank Ruhl Libre", serif; }
+.logo-text strong { color: var(--accent); }
+
+.nav { display: flex; align-items: center; gap: 6px; }
+.nav-link {
+  padding: 8px 14px; border-radius: 999px; font-weight: 500; color: var(--text-muted);
+  transition: color .2s ease, background .2s ease;
+}
+.nav-link:hover, .nav-link.active { color: var(--text); }
+.nav-cta { background: var(--primary); color: #fff !important; font-weight: 700; }
+.nav-cta:hover { background: var(--primary-dark); }
+
+.nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+.nav-toggle span { width: 26px; height: 3px; background: var(--text); border-radius: 2px; transition: .3s; }
+.nav-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; color: #fff;
+  background: url("../images/hero.jpg") center/cover fixed;
+}
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,19,16,.55) 0%, rgba(26,19,16,.78) 100%); }
+.hero-content { position: relative; z-index: 2; padding-top: var(--header-h); }
+.hero-eyebrow { color: var(--accent-soft); letter-spacing: 3px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; font-size: .95rem; }
+.hero-title { font-size: clamp(3rem, 9vw, 6rem); font-weight: 900; letter-spacing: 1px; text-shadow: 0 6px 30px rgba(0,0,0,.5); }
+.hero-slogan { font-family: "Frank Ruhl Libre", serif; color: var(--accent-soft); font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 700; margin-top: 6px; }
+.hero-subtitle { font-size: clamp(1.05rem, 2.4vw, 1.3rem); max-width: 660px; margin: 16px auto 30px; color: #f0e6dc; }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.hero-delivery { margin-top: 26px; color: #f0e6dc; font-weight: 600; display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
+.kosher-badge { display: inline-block; background: rgba(224,165,46,.18); border: 1px solid var(--accent); color: var(--accent-soft); padding: 3px 12px; border-radius: 999px; font-weight: 700; font-size: .9em; }
+.scroll-down {
+  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 2;
+  font-size: 2.4rem; color: #fff; opacity: .8; animation: bounce 2s infinite;
+}
+@keyframes bounce { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,10px)} }
+
+/* ---------- Sections ---------- */
+.section { padding: 92px 0; }
+.section:nth-of-type(even) { background: var(--bg-alt); }
+.section-head { text-align: center; max-width: 680px; margin: 0 auto 48px; }
+.section-eyebrow { color: var(--accent); letter-spacing: 2px; font-weight: 700; text-transform: uppercase; font-size: .85rem; margin-bottom: 8px; }
+.section-title { font-size: clamp(1.8rem, 4.5vw, 2.8rem); margin-bottom: 14px; }
+.section-lead { color: var(--text-muted); font-size: 1.08rem; }
+
+/* ---------- Reveal animation ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ---------- About / Story ---------- */
+.about-grid { display: grid; grid-template-columns: 1.5fr .9fr; gap: 46px; align-items: start; }
+.about-text p { color: var(--text-muted); margin-bottom: 14px; }
+.about-text p:last-child { color: var(--accent-soft); font-weight: 600; font-size: 1.08rem; }
+.about-text strong { color: var(--text); }
+.about-side { position: sticky; top: 100px; }
+.grandma-photo { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.grandma-photo .photo-placeholder {
+  aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  color: var(--text-muted); text-align: center; padding: 20px;
+  background: repeating-linear-gradient(45deg, var(--surface) 0 14px, var(--surface-2) 14px 28px);
+}
+.grandma-photo .photo-icon { font-size: 2.6rem; }
+.grandma-photo img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
+.grandma-photo figcaption { padding: 12px 16px; font-size: .92rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); }
+.about-stats { display: flex; gap: 22px; margin-top: 22px; flex-wrap: wrap; justify-content: center; }
+.stat { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.stat-num { font-size: 1.7rem; font-weight: 800; color: var(--accent); font-family: "Frank Ruhl Libre", serif; }
+.stat-label { color: var(--text-muted); font-size: .9rem; }
+
+/* ---------- Menu ---------- */
+.menu-block { margin-bottom: 52px; }
+.menu-block:last-child { margin-bottom: 0; }
+.menu-block-title { font-size: clamp(1.4rem, 3vw, 1.9rem); text-align: center; margin-bottom: 6px; }
+.menu-block-sub { text-align: center; color: var(--text-muted); margin-bottom: 22px; }
+.menu-block-title + .menu-table-wrap, .menu-block-title + .menu-grid { margin-top: 24px; }
+
+/* טבלת שיפודים */
+.menu-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); -webkit-overflow-scrolling: touch; }
+.menu-table { width: 100%; border-collapse: collapse; min-width: 560px; text-align: center; }
+.menu-table th, .menu-table td { padding: 12px 10px; border-bottom: 1px solid var(--border); }
+.menu-table thead th { background: var(--surface-2); }
+.menu-table .mt-group { color: var(--accent); font-size: 1.02rem; border-right: 1px solid var(--border); border-left: 1px solid var(--border); }
+.menu-table .mt-sub { color: var(--text-muted); font-size: .82rem; font-weight: 600; border-right: 1px solid var(--border); }
+.menu-table .mt-name { background: var(--surface-2); text-align: right; font-weight: 700; position: sticky; right: 0; z-index: 2; min-width: 110px; }
+.menu-table tbody .mt-name { font-size: 1.05rem; }
+.menu-table tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+.menu-table tbody tr:hover td { background: rgba(224,165,46,.07); }
+.menu-table .mt-price { font-weight: 800; color: var(--accent); font-family: "Frank Ruhl Libre", serif; font-size: 1.1rem; }
+.menu-table .mt-price::before { content: "₪"; font-size: .75em; margin-left: 1px; opacity: .8; }
+.menu-table .mt-empty { color: var(--text-muted); opacity: .4; }
+.menu-table-hint { text-align: center; color: var(--text-muted); font-size: .82rem; margin-top: 10px; display: none; }
+
+.menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.menu-item {
+  display: flex; justify-content: space-between; gap: 16px; padding: 20px 22px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.menu-item:hover { transform: translateY(-3px); border-color: var(--accent); }
+.menu-item-main { flex: 1; }
+.menu-item-name { display: flex; align-items: center; gap: 8px; font-size: 1.18rem; font-weight: 700; margin-bottom: 4px; }
+.menu-item-desc { color: var(--text-muted); font-size: .95rem; line-height: 1.5; }
+.menu-item-price { color: var(--accent); font-size: 1.25rem; font-weight: 800; white-space: nowrap; font-family: "Frank Ruhl Libre", serif; }
+.menu-item-price::before { content: "₪"; font-size: .9em; margin-left: 2px; }
+.menu-tag { font-size: .7rem; background: var(--primary); color: #fff; padding: 2px 8px; border-radius: 999px; font-weight: 700; }
+
+/* ---------- Gallery ---------- */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.gallery-item { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; aspect-ratio: 1; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item::after { content: "🔍"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(26,19,16,.45); opacity: 0; transition: .3s; font-size: 1.5rem; }
+.gallery-item:hover::after { opacity: 1; }
+
+/* ---------- Lightbox ---------- */
+.lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; }
+.lightbox.open { display: flex; }
+.lightbox-img { max-width: 90vw; max-height: 84vh; border-radius: 10px; box-shadow: var(--shadow); }
+.lightbox-close { position: absolute; top: 20px; left: 26px; background: none; border: none; color: #fff; font-size: 2.6rem; cursor: pointer; line-height: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 2.6rem; width: 56px; height: 56px; border-radius: 50%; cursor: pointer; transition: .2s; }
+.lightbox-nav:hover { background: rgba(255,255,255,.25); }
+.lightbox-prev { right: 22px; }
+.lightbox-next { left: 22px; }
+
+/* ---------- Reviews ---------- */
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.review-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 12px; }
+.review-head { display: flex; align-items: center; gap: 12px; }
+.review-avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; flex-shrink: 0; }
+.review-author { font-weight: 700; }
+.review-meta { color: var(--text-muted); font-size: .78rem; }
+.review-date { color: var(--text-muted); font-size: .82rem; }
+.review-stars { color: var(--accent); letter-spacing: 2px; }
+.review-text { color: var(--text-muted); font-size: .97rem; }
+.review-source { margin-top: auto; font-size: .8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+.reviews-cta { text-align: center; margin-top: 38px; }
+
+/* ---------- Hours ---------- */
+.hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.hours-status { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; padding: 9px 18px; border-radius: 999px; font-weight: 700; }
+.hours-status.open { background: rgba(46,160,67,.15); color: #5fd17a; }
+.hours-status.closed { background: rgba(192,57,43,.15); color: #f0857a; }
+.hours-status .dot { width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
+.hours-list { list-style: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.hours-list li { display: flex; justify-content: space-between; padding: 15px 24px; border-bottom: 1px solid var(--border); }
+.hours-list li:last-child { border-bottom: none; }
+.hours-list li.today { background: var(--surface-2); }
+.hours-list li.today .hours-day::after { content: " · היום"; color: var(--accent); font-weight: 700; font-size: .85em; }
+.hours-day { font-weight: 600; }
+.hours-time { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.hours-time.closed-day { color: #f0857a; }
+
+/* ---------- Contact ---------- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px; }
+.contact-info { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: start; }
+.contact-card { display: flex; flex-direction: column; gap: 4px; padding: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); transition: transform .2s, border-color .2s; }
+.contact-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.contact-icon { font-size: 1.6rem; }
+.contact-label { color: var(--text-muted); font-size: .85rem; }
+.contact-value { font-weight: 700; }
+
+.contact-cta {
+  background: linear-gradient(160deg, var(--surface) 0%, var(--surface-2) 100%);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 34px;
+  display: flex; flex-direction: column; gap: 14px; justify-content: center; text-align: center;
+}
+.contact-cta h3 { font-size: 1.5rem; }
+.contact-cta p { color: var(--text-muted); }
+.contact-cta-note { margin-top: 6px; color: var(--text-muted); font-size: .95rem; }
+.contact-cta-note strong { color: var(--accent-soft); }
+
+.social-row { display: flex; gap: 14px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+.social-link {
+  display: inline-flex; align-items: center; gap: 9px; padding: 10px 22px;
+  border: 1px solid var(--border); border-radius: 999px; color: var(--text-muted);
+  font-weight: 600; transition: color .2s, border-color .2s, background .2s, transform .2s;
+}
+.social-link svg { flex-shrink: 0; }
+.social-link:hover { transform: translateY(-2px); color: #fff; }
+.social-instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: transparent; }
+.social-facebook:hover { background: #1877f2; border-color: transparent; }
+.social-tiktok:hover { background: #010101; border-color: #25f4ee; color: #25f4ee; }
+
+/* ---------- Map ---------- */
+.map-actions { display: flex; gap: 14px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+.map-embed { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.map-embed iframe { display: block; filter: grayscale(.2) contrast(1.05); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: #140e0b; padding: 56px 0 0; border-top: 1px solid var(--border); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 36px; padding-bottom: 40px; }
+.footer-logo { height: 56px; width: auto; margin-bottom: 12px; background: #fff; border-radius: 12px; padding: 8px 14px; }
+.footer-brand p { color: var(--text-muted); margin-top: 4px; max-width: 360px; }
+.footer-col h4 { margin-bottom: 14px; color: var(--accent); font-family: "Heebo", sans-serif; font-size: 1rem; }
+.footer-col a, .footer-col span { display: block; color: var(--text-muted); padding: 4px 0; transition: color .2s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom { border-top: 1px solid var(--border); padding: 20px 0; text-align: center; color: var(--text-muted); font-size: .9rem; }
+
+/* ---------- Call FAB ---------- */
+.call-fab {
+  position: fixed; bottom: 24px; left: 24px; z-index: 90; width: 58px; height: 58px;
+  background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; box-shadow: 0 8px 24px rgba(0,0,0,.4); transition: transform .2s; animation: pulse 2.4s infinite;
+}
+.call-fab:hover { transform: scale(1.1); }
+@keyframes pulse {
+  0% { box-shadow: 0 8px 24px rgba(0,0,0,.4), 0 0 0 0 rgba(192,57,43,.5); }
+  70% { box-shadow: 0 8px 24px rgba(0,0,0,.4), 0 0 0 16px rgba(192,57,43,0); }
+  100% { box-shadow: 0 8px 24px rgba(0,0,0,.4), 0 0 0 0 rgba(192,57,43,0); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .nav {
+    position: fixed; inset: var(--header-h) 0 auto 0; flex-direction: column; gap: 0;
+    background: rgba(26,19,16,.98); backdrop-filter: blur(10px); padding: 16px 0;
+    border-bottom: 1px solid var(--border); transform: translateY(-120%); transition: transform .35s ease;
+    align-items: stretch;
+  }
+  .nav.open { transform: translateY(0); }
+  .nav-link { padding: 14px 22px; border-radius: 0; text-align: center; }
+  .nav-cta { margin: 8px 22px; border-radius: 999px; }
+  .nav-toggle { display: flex; }
+
+  .about-grid, .hours-grid, .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+  .about-side { position: static; order: -1; max-width: 420px; margin: 0 auto; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .menu-table-hint { display: block; }
+  .reviews-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero { background-attachment: scroll; }
+}
+
+@media (max-width: 560px) {
+  .section { padding: 64px 0; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-info { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+}
