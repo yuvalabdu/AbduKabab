@@ -68,7 +68,7 @@ h1, h2, h3, h4 { font-family: "Frank Ruhl Libre", "Heebo", serif; line-height: 1
 .header-inner { display: flex; align-items: center; justify-content: space-between; }
 
 .logo { display: flex; align-items: center; gap: 8px; }
-.logo-img { height: 44px; width: auto; display: block; background: #fff; border-radius: 10px; padding: 4px 10px; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+.logo-img { height: 52px; width: auto; display: block; }
 .logo-mark { font-size: 1.5rem; }
 .logo-text { font-family: "Frank Ruhl Libre", serif; }
 .logo-text strong { color: var(--accent); }
@@ -263,7 +263,7 @@ h1, h2, h3, h4 { font-family: "Frank Ruhl Libre", "Heebo", serif; line-height: 1
 /* ---------- Footer ---------- */
 .site-footer { background: #140e0b; padding: 56px 0 0; border-top: 1px solid var(--border); }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 36px; padding-bottom: 40px; }
-.footer-logo { height: 56px; width: auto; margin-bottom: 12px; background: #fff; border-radius: 12px; padding: 8px 14px; }
+.footer-logo { height: 70px; width: auto; margin-bottom: 12px; }
 .footer-brand p { color: var(--text-muted); margin-top: 4px; max-width: 360px; }
 .footer-col h4 { margin-bottom: 14px; color: var(--accent); font-family: "Heebo", sans-serif; font-size: 1rem; }
 .footer-col a, .footer-col span { display: block; color: var(--text-muted); padding: 4px 0; transition: color .2s; }
