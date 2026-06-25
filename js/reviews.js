@@ -75,8 +75,7 @@
               }));
               renderReviews(mapped);
               if (place.url) {
-                const link = document.getElementById("googleReviewsLink");
-                if (link) link.href = place.url;
+                document.querySelectorAll(".js-google-review").forEach(a => { a.href = place.url; });
               }
             } else {
               console.warn("Places API לא החזיר ביקורות (status: " + status + "). מציג ביקורות סטטיות.");
