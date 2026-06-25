@@ -31,6 +31,16 @@ const SITE_CONFIG = {
   // השאר ריק כדי להשתמש בביקורות הסטטיות מטה.
   googleApiKey: "",
   googlePlaceId: "",
+
+  // --- Analytics / Insights ---
+  // הזן את המזהים אחרי יצירת ה-properties (ראה README/הוראות).
+  // השאר ריק כדי לבטל איסוף נתונים (האתר עובד רגיל, פשוט לא אוסף).
+  analytics: {
+    ga4Id: "",        // Google Analytics 4 — בפורמט "G-XXXXXXXXXX"
+    clarityId: "",    // Microsoft Clarity — מזהה הפרויקט (מחרוזת קצרה)
+    consentText: "האתר משתמש בעוגיות כדי לשפר את החוויה ולמדוד שימוש.",
+    consentButton: "הבנתי",
+  },
 };
 
 /* ------------------------------------------------------------------ */

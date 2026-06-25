@@ -270,6 +270,9 @@ h1, h2, h3, h4 { font-family: "Frank Ruhl Libre", "Heebo", serif; line-height: 1
 .footer-col a, .footer-col span { display: block; color: var(--text-muted); padding: 4px 0; transition: color .2s; }
 .footer-col a:hover { color: var(--text); }
 .footer-bottom { border-top: 1px solid var(--border); padding: 20px 0; text-align: center; color: var(--text-muted); font-size: .9rem; }
+.footer-credit { display: block; margin-top: 6px; font-size: .82rem; color: var(--text-muted); opacity: .9; }
+.footer-credit a { color: var(--accent); font-weight: 600; transition: color .2s; }
+.footer-credit a:hover { color: var(--accent-soft); text-decoration: underline; }
 
 /* ---------- Call FAB ---------- */
 .call-fab {
@@ -314,4 +317,32 @@ h1, h2, h3, h4 { font-family: "Frank Ruhl Libre", "Heebo", serif; line-height: 1
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { width: 100%; }
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ===== Cookie consent ===== */
+.cookie-consent {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.cookie-consent.hidden { display: none; }
+.cookie-text { margin: 0; font-size: 0.92rem; line-height: 1.5; flex: 1; }
+.cookie-btn { flex-shrink: 0; padding: 9px 22px; }
+
+@media (max-width: 560px) {
+  .cookie-consent { flex-direction: column; align-items: stretch; text-align: center; }
+  .cookie-btn { width: 100%; }
 }

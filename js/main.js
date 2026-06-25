@@ -109,7 +109,7 @@
   const galleryGrid = $("#galleryGrid");
   if (typeof GALLERY !== "undefined" && galleryGrid) {
     galleryGrid.innerHTML = GALLERY.map((g, i) => `
-      <div class="gallery-item" data-i="${i}">
+      <div class="gallery-item" data-i="${i}" data-track="gallery_open" data-track-image="${escapeHtml(g.alt || String(i))}">
         <img src="${g.src}" alt="${escapeHtml(g.alt || "תמונה")}" loading="lazy" />
       </div>`).join("");
   }
