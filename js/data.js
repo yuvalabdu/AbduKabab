@@ -24,8 +24,8 @@ const SITE_CONFIG = {
   // --- מפה וניווט ---
   // טקסט החיפוש שישמש למפה המוטמעת ולכפתורי הניווט (Waze / Google Maps)
   mapQuery: "עבדו קבב, יצחק רבין 41, חדרה",
-  // קישור לדף העסק בגוגל (לכפתור "לכל הביקורות")
-  googleBusinessUrl: "https://www.google.com/maps/search/?api=1&query=עבדו+קבב+חדרה",
+  // קישור ישיר לכתיבת ביקורת בגוגל (g.page) — פותח מיד את מסך דירוג הכוכבים.
+  googleBusinessUrl: "https://g.page/r/CXGIODnCliEYEAE/review",
 
   // --- Google Places API (אופציונלי, לביקורות חיות) ---
   // השאר ריק כדי להשתמש בביקורות הסטטיות מטה.

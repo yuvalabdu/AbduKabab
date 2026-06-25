@@ -208,6 +208,7 @@ h1, h2, h3, h4 { font-family: "Frank Ruhl Libre", "Heebo", serif; line-height: 1
 .review-text { color: var(--text-muted); font-size: .97rem; }
 .review-source { margin-top: auto; font-size: .8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
 .reviews-cta { text-align: center; margin-top: 38px; }
+.reviews-cta-top { margin-top: 0; margin-bottom: 34px; }
 
 /* ---------- Hours ---------- */
 .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }

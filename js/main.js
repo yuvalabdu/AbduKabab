@@ -189,8 +189,9 @@
     if (gmapsLink) gmapsLink.href = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
     if (mapIframe) mapIframe.src = `https://maps.google.com/maps?q=${q}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
-    const grl = $("#googleReviewsLink");
-    if (grl && SITE_CONFIG.googleBusinessUrl) grl.href = SITE_CONFIG.googleBusinessUrl;
+    if (SITE_CONFIG.googleBusinessUrl) {
+      $$(".js-google-review").forEach(a => { a.href = SITE_CONFIG.googleBusinessUrl; });
+    }
   }
 
   // חשיפה ל-reviews.js
