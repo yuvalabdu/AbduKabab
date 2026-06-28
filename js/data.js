@@ -36,8 +36,8 @@ const SITE_CONFIG = {
   // הזן את המזהים אחרי יצירת ה-properties (ראה README/הוראות).
   // השאר ריק כדי לבטל איסוף נתונים (האתר עובד רגיל, פשוט לא אוסף).
   analytics: {
-    ga4Id: "",        // Google Analytics 4 — בפורמט "G-XXXXXXXXXX"
-    clarityId: "",    // Microsoft Clarity — מזהה הפרויקט (מחרוזת קצרה)
+    ga4Id: "G-E11YWYG4GK",  // Google Analytics 4 — בפורמט "G-XXXXXXXXXX"
+    clarityId: "xea2s5k2ax",  // Microsoft Clarity — מזהה הפרויקט (מחרוזת קצרה)
     consentText: "האתר משתמש בעוגיות כדי לשפר את החוויה ולמדוד שימוש.",
     consentButton: "הבנתי",
   },
